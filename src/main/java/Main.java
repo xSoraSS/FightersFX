@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import uti.StageManager;
 
 public class Main extends Application {
 
@@ -14,6 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("App");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        StageManager.setStage(primaryStage);
     }
 
 

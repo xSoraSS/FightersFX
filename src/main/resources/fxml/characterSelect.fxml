@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CharacterSelectController">
    <children>
-      <Button fx:id="d" layoutX="169.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Button" />
+      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backmenu" style="-fx-background-color: transparent">
+         <graphic>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ToggleButton fx:id="aries" contentDisplay="TOP" layoutX="72.0" layoutY="122.0" mnemonicParsing="false" style="-fx-background-color: transparent" text="Aries">
+         <graphic>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/Aries/AriesStance.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="kratos" contentDisplay="TOP" layoutX="300.0" layoutY="122.0" mnemonicParsing="false" style="-fx-background-color: transparent" text="Kratos">
+         <graphic>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/Kratos/KratosStance.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
    </children>
 </AnchorPane>
