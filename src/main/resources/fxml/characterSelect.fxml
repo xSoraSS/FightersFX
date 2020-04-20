@@ -15,15 +15,16 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="confirm" layoutX="370.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backmenu" style="-fx-background-color: transparent">
+      <Button fx:id="confirm" layoutX="370.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#Confirm" style="-fx-background-color: transparent">
          <graphic>
-            <ImageView pickOnBounds="true" preserveRatio="true">
+            <ImageView  pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/confirm.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
+
       <ToggleButton fx:id="aries" contentDisplay="TOP" layoutX="72.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Select" style="-fx-background-color: transparent" text="Aries">
          <graphic>
             <ImageView pickOnBounds="true" preserveRatio="true">
@@ -33,7 +34,7 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <ToggleButton fx:id="kratos" contentDisplay="TOP" layoutX="300.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Select"  style="-fx-background-color: transparent" text="Kratos">
+      <ToggleButton fx:id="kratos" contentDisplay="TOP" layoutX="300.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Select" style="-fx-background-color: transparent" text="Kratos">
          <graphic>
             <ImageView pickOnBounds="true" preserveRatio="true">
                <image>

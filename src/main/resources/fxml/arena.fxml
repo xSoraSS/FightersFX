@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ArenaController">
+    <ImageView fitHeight="52.0" fitWidth="146.0" layoutX="14.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../Assets/player1.png" />
+        </image>
+    </ImageView>
+    <Rectangle fx:id="p1HealthBar" fill="RED" height="20.0" layoutX="14.0" layoutY="14" width="200.0" />
+    <ImageView fitHeight="52.0" fitWidth="143.0" layoutX="456.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../Assets/player2.png" />
+        </image>
+    </ImageView>
+    <Rectangle fx:id="p2HealthBar" fill="RED" height="20.0" layoutX="386.0" layoutY="14.0" width="200.0" />
+
+    <ImageView fx:id="p1" fitHeight="177.0" fitWidth="188.0" layoutX="20.0" layoutY="169.0">
+
+    </ImageView>
+    <ImageView fx:id="p2" fitHeight="177.0" fitWidth="188.0" layoutX="392.0" layoutY="169.0">
+
+    </ImageView>
+
+</AnchorPane>

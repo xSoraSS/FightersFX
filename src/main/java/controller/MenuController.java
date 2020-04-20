@@ -14,6 +14,7 @@ import uti.StageManager;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
@@ -21,10 +22,9 @@ public class MenuController implements Initializable {
     @FXML
     private Button start, quit;
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         start.setOnMouseEntered(event -> start.setGraphic(new ImageView("Assets/Menu/start_hover.png")));
         start.setOnMouseExited(event -> start.setGraphic(new ImageView("Assets/Menu/start.png")));
 
@@ -35,9 +35,8 @@ public class MenuController implements Initializable {
 
 
     public void startselectcharacter(MouseEvent mouseEvent) throws IOException {
-        Stage stage = StageManager.getStage();
-        Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/characterSelect.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("fxml/characterSelect.fxml")));
+        StageManager.stage.setScene(new Scene(root));
+        StageManager.stage.show();
     }
 }

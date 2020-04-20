@@ -8,9 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.Aries;
+import model.Kratos;
+import model.Player;
 import uti.StageManager;
 
 import java.io.IOException;
@@ -23,16 +27,16 @@ public class CharacterSelectController implements Initializable   {
     @FXML
     private ToggleButton aries, kratos;
 
+    private ArenaController arenaController;
 
     private String p1, p2;
-    private Stage stage;
+    private Player player1 , player2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         p1="";
         p2="";
 
-        stage = StageManager.getStage();
 
 
         back.setOnMouseEntered(event -> back.setGraphic(new ImageView("Assets/back_hover.png")));
@@ -40,12 +44,6 @@ public class CharacterSelectController implements Initializable   {
 
         confirm.setOnMouseEntered(event -> confirm.setGraphic(new ImageView("Assets/confirm_hover.png")));
         confirm.setOnMouseExited(event -> confirm.setGraphic(new ImageView("Assets/confirm.png")));
-        confirm.setOnAction(event -> {
-//            setCharacter(this.player1Char, this.player2Char);
-//            arena.setPlayer1(this.player1);
-//            arena.setPlayer2(this.player2);
-//            stage.setScene(this.arenaInfo.getArenaSelectScene());
-        });
         confirm.setVisible(false);
 
 
@@ -61,35 +59,34 @@ public class CharacterSelectController implements Initializable   {
 
     public void backmenu(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/menu.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
+        StageManager.stage.setScene(new Scene(root));
+        StageManager.stage.show();
     }
 
     public void Select(MouseEvent mouseEvent) {
 
-        if (aries.isSelected() && this.p1.equals("") && this.p2.equals(""))
-        {
-            aries.setText("Aries - Player 1");
-            this.p1 = "Aries";
-
+        if (aries.isSelected()){
+            if (this.p1.equals("") && this.p2.equals("")){
+                aries.setText("Aries - Player 1");
+                this.p1 = "Aries";
+            }else if (!this.p1.equals("") &&
+                    !this.p1.equals("Aries") && this.p2.equals(""))
+            {
+                aries.setText("Aries - Player 2");
+                this.p2 = "Aries";
+            }else if (p1.equals("")){
+                aries.setText("Aries - Player 1");
+                this.p1 = "Aries";
+            }
         }
-        else if (aries.isSelected() && !this.p1.equals("") &&
-                !this.p1.equals("Aries") && this.p2.equals(""))
-        {
-            aries.setText("Aries - Player 2");
-            this.p2 = "Aries";
-        }
-        else if (!aries.isSelected() && !this.p1.equals("") &&
-                this.p2.equals("Aries"))
-        {
-            aries.setText("Aries");
-            this.p2 = "";
-        }
-        else if (!aries.isSelected() && this.p1.equals("Aries") &&
-                this.p2.equals(""))
-        {
-            aries.setText("Aries");
-            this.p1 = "";
+        if (!aries.isSelected()){
+            if (p1.equals("Aries")){
+                aries.setText("Aries");
+                p1="";
+            }else if (p2.equals("Aries")){
+                aries.setText("Aries");
+                p2="";
+            }
         }
 
         if (kratos.isSelected() && this.p1.equals("") && this.p2.equals(""))
@@ -125,5 +122,36 @@ public class CharacterSelectController implements Initializable   {
         {
             confirm.setVisible(false);
         }
+    }
+
+    public void setCharacter(String p1, String p2)
+    {
+        // Depending on what a player has chosen previously, an object for the player's choice is instantiated
+        if(p1.equals("Kratos"))
+        {
+            this.player1 = new Kratos();
+        }
+        else if(p2.equals("Kratos"))
+        {
+            this.player2 = new Kratos();
+        }
+        if(p1.equals("Aries"))
+        {
+            this.player1 = new Aries();
+        }
+        else if(p2.equals("Aries"))
+        {
+            this.player2 = new Aries();
+        }
+    }
+
+    public void Confirm(MouseEvent mouseEvent) throws IOException {
+        setCharacter(this.p1, this.p2);
+        StageManager.setPlayer1(this.player1);
+        StageManager.setPlayer2(this.player2);
+
+        Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/arena.fxml"));
+        StageManager.stage.setScene(new Scene(root));
+        StageManager.stage.show();
     }
 }
