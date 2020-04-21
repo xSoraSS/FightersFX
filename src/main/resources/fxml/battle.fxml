@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane onKeyPressed="#da" onKeyReleased="#db" prefHeight="603.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BattleController">
+   <children>
+      <Button fx:id="Pause" layoutX="573.0" layoutY="14.0" mnemonicParsing="false" text="Button" AnchorPane.topAnchor="14.0" />
+      <ImageView fitHeight="52.0" fitWidth="146.0" layoutX="14.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="26.0">
+         <image>
+            <Image url="@../Assets/player1.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="p1HealthBar" fill="RED" height="20.0" layoutX="14.0" layoutY="14" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <ImageView fitHeight="52.0" fitWidth="143.0" layoutX="456.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="26.0">
+         <image>
+            <Image url="@../Assets/player2.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="p2HealthBar" fill="RED" height="20.0" layoutX="386.0" layoutY="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+
+      <ImageView fx:id="p1"  />
+      <ImageView fx:id="p2" />
+   </children>
+</AnchorPane>

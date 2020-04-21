@@ -27,7 +27,6 @@ public class CharacterSelectController implements Initializable   {
     @FXML
     private ToggleButton aries, kratos;
 
-    private ArenaController arenaController;
 
     private String p1, p2;
     private Player player1 , player2;
@@ -150,7 +149,7 @@ public class CharacterSelectController implements Initializable   {
         StageManager.setPlayer1(this.player1);
         StageManager.setPlayer2(this.player2);
 
-        Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/arena.fxml"));
+        Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/battle.fxml"));
         StageManager.stage.setScene(new Scene(root));
         StageManager.stage.show();
     }
