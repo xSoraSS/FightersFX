@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/menucss.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <Button fx:id="start" layoutX="217.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#startselectcharacter" style="-fx-background-color: transparent">
+          <graphic>
+              <ImageView pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../Assets/Menu/start.png" />
+                  </image>
+              </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="quit" layoutX="157.0" layoutY="267.0" mnemonicParsing="false" style="-fx-background-color: transparent">
+          <graphic>
+              <ImageView pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../Assets/Menu/quit.png" />
+                  </image>
+              </ImageView>
+          </graphic>
+      </Button>
+       <Button fx:id="multi" layoutX="259.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#multiplayer" text="Multiplayer">
+       </Button>
+   </children>
+</AnchorPane>
