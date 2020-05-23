@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -25,7 +26,7 @@ public class BattleController implements Initializable {
     @FXML
     private Rectangle p1HealthBar, p2HealthBar;
     @FXML
-    private ImageView p1,p2;
+    private ImageView p1,p2, battleground;
 
     private Player player1,player2;
 
@@ -48,11 +49,23 @@ public class BattleController implements Initializable {
     private BooleanProperty downPressed = new SimpleBooleanProperty();
     private BooleanProperty slashPressed = new SimpleBooleanProperty();
 
-    private AudioClip punch;
-    private AudioClip kick;
+    private AudioClip punch, kick, music;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /**
+         * Escenario y Música Aleatoria.
+         */
+        int idBattleground = 0;
+        idBattleground = (int) (Math.random()*5)+1;
+        battleground.setImage(new Image("Assets/Battlegrounds/battleground-"+idBattleground+".png"));
+        battleground.setFitHeight(603);
+        battleground.setFitWidth(1200);
+
+        music = new AudioClip(new File("src/main/resources/Audio/Music/sound-"+idBattleground+".wav").toURI().toString());
+        music.play();
+        music.setVolume(20);
+
 
         player1 = StageManager.getPlayer1();
         player2 = StageManager.getPlayer2();
@@ -71,40 +84,58 @@ public class BattleController implements Initializable {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                // Player 1
+                /**
+                 * Jugador 1.
+                 */
                 if (dPressed.get() && p1.getX() <= 1200 - p1.getImage().getWidth() && p1.getX() < p2.getX())
-                // The code runs if 'D' is pressed, and the x position of the character moves to the right on the screen
+                /**
+                 * Animación ejecutada al pulsar la tecla "D".
+                 */
                 {
                     p1.setX((p1.getX() + 5));
                 }
 
                 if (aPressed.get() && p1.getX() >= 0)
+                /**
+                 * Animación ejecutada al pulsar la tecla "A".
+                 */
                 {
 
                     p1.setX((p1.getX() - 5));
                 }
-                // Player 2
+                /**
+                 * Jugador 2.
+                 */
                 if (leftPressed.get() && p2.getX() >= 0 && p1.getX() < p2.getX())
+                /**
+                 * Animación ejecutada al pulsar la tecla "->".
+                 */
                 {
                     p2.setX((p2.getX() - 5));
                 }
 
                 if (rightPressed.get() && p2.getX() <= 1200 - p2.getImage().getWidth())
+                /**
+                 * Animación ejecutada al pulsar la tecla "<-".
+                 */
                 {
                     p2.setX((p2.getX() + 5));
                 }
             }
         };
 
-        // Player 1
-        dPressed.addListener((obs, wasPressed, nowPressed) -> // A listener checks if the boolean property changes state
-                // (so the key is pressed or released)
+        /**
+         * Jugador 1.
+
+         * Listeners que comprueban si el estado del boolean property en cuestión cambia, es decir, si la tecla deja de estar presionada.
+         */
+        dPressed.addListener((obs, wasPressed, nowPressed) ->
         {
-            if(dPressed.get()) // If the key is pressed, then a timer for an animation starts
+            if(dPressed.get()) // Si la tecla "D" está presionada se incia la animación.
             {
                 timer.start();
             }
-            else if(!dPressed.get()) // If the key is released, then the character returns to their normal stance
+            else if(!dPressed.get()) // Si deja de estar presionada vuelve a su estado normal.
             {
                 p1.setImage(player1.getImageFighterStanceL());
             }
@@ -131,12 +162,13 @@ public class BattleController implements Initializable {
                     player2.takeDamage(player1.getFighterPunchDamage());
                     p2HealthBar.setWidth(player2.getHealth());
                     p2HealthBar.setX(p2HealthBar.getX() + player1.getFighterPunchDamage());
-//                    punch = new AudioClip(new File("src/main/resources/Audio/Effects/punch.wav").toURI().toString());
+                    punch = new AudioClip(new File("src/main/resources/Audio/Effects/punch.wav").toURI().toString());
                     if(p2.getX() <= 1200 - p2.getImage().getWidth())
                     {
                         p2.setX(p2.getX()+40);
                     }
-//                    punch.play();
+                    punch.play();
+                    punch.setVolume(15);
                 }
             }
         });
@@ -150,17 +182,20 @@ public class BattleController implements Initializable {
                     player2.takeDamage(player1.getFighterKickDamage());
                     p2HealthBar.setWidth(player2.getHealth());
                     p2HealthBar.setX(p2HealthBar.getX() + player1.getFighterKickDamage());
-//                    kick = new AudioClip(new File("src/main/resources/Audio/Effects/kick.wav").toURI().toString());
+                    kick = new AudioClip(new File("src/main/resources/Audio/Effects/kick.wav").toURI().toString());
                     if(p2.getX() <= 1200 - p2.getImage().getWidth())
                     {
                         p2.setX(p2.getX()+60);
                     }
-//                    kick.play();
+                    kick.play();
+                    kick.setVolume(15);
                 }
             }
         });
 
-        // Player 2
+        /**
+         * Jugador 2.
+         */
         leftPressed.addListener((obs, wasPressed, nowPressed) ->
         {
             if(leftPressed.get())
@@ -194,12 +229,13 @@ public class BattleController implements Initializable {
                 {
                     player1.takeDamage(player2.getFighterPunchDamage());
                     p1HealthBar.setWidth(player1.getHealth());
-//                    punch = new AudioClip(new File("src/main/resources/Audio/Effects/punch.wav").toURI().toString());
+                    punch = new AudioClip(new File("src/main/resources/Audio/Effects/punch.wav").toURI().toString());
                     if(p1.getX() >= 0)
                     {
                         p1.setX(p1.getX()-40);
                     }
-//                    punch.play();
+                    punch.play();
+                    punch.setVolume(15);
                 }
             }
         });
@@ -212,12 +248,13 @@ public class BattleController implements Initializable {
                 {
                     player1.takeDamage(player2.getFighterKickDamage());
                     p1HealthBar.setWidth(player1.getHealth());
-//                    kick = new AudioClip(new File("src/main/resources/Audio/Effects/kick.wav").toURI().toString());
+                    kick = new AudioClip(new File("src/main/resources/Audio/Effects/kick.wav").toURI().toString());
                     if(p1.getX() >= 0)
                     {
                         p1.setX(p1.getX()-60);
                     }
-//                    kick.play();
+                    kick.play();
+                    kick.setVolume(15);
                 }
             }
         });

@@ -11,12 +11,14 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import model.Aries;
 import model.Kratos;
 import model.Player;
 import uti.StageManager;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,8 +33,14 @@ public class CharacterSelectController implements Initializable   {
     private String p1, p2;
     private Player player1 , player2;
 
+    private AudioClip cSelect;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        cSelect = new AudioClip(new File("src/main/resources/Audio/Effects/characterSelect.wav").toURI().toString());
+        cSelect.play();
+        cSelect.setVolume(20);
         p1="";
         p2="";
 
@@ -57,6 +65,7 @@ public class CharacterSelectController implements Initializable   {
     }
 
     public void backmenu(MouseEvent mouseEvent) throws IOException {
+        cSelect.stop();
         Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/menu.fxml"));
         StageManager.stage.setScene(new Scene(root));
         StageManager.stage.show();
@@ -149,6 +158,7 @@ public class CharacterSelectController implements Initializable   {
         StageManager.setPlayer1(this.player1);
         StageManager.setPlayer2(this.player2);
 
+        cSelect.stop();
         Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/battle.fxml"));
         StageManager.stage.setScene(new Scene(root));
         StageManager.stage.show();

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controll">
+   <children>
+       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backmenu" style="-fx-background-color: transparent">
+           <graphic>
+               <ImageView pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../Assets/back.png" />
+                   </image>
+               </ImageView>
+           </graphic>
+       </Button>
+       <ImageView id="controlls" fitHeight="485.0" fitWidth="997.0" layoutX="7.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../Assets/Menu/controlButtons.png" />
+           </image>
+       </ImageView>   </children>
+</AnchorPane>
