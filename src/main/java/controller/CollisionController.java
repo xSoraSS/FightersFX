@@ -38,6 +38,14 @@ public class CollisionController{
      * A continuación se comprueban las colisiones con las diferentes columnas/paredes.
      */
     public void columnColCheck(){
+        System.out.println("Column X: " + columnImage.getX());
+        System.out.println("X: " + (playerImage.getX()+playerImage.getFitWidth()));
 
+        if (playerImage.getX() >= columnImage.getX() - playerImage.getFitWidth()){
+            playerImage.setX((playerImage.getX()-columnImage.getFitWidth()));
+        }
+        if (playerImage.getY()<columnImage.getY()){
+
+        }
     }
 }

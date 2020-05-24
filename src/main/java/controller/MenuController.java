@@ -33,8 +33,8 @@ public class MenuController implements Initializable {
         mainMenu.play();
         mainMenu.setVolume(20);
 
-        platform.setOnMouseEntered(event -> platform.setGraphic(new ImageView("Assets/Menu/adventure_hover.png")));
-        platform.setOnMouseExited(event -> platform.setGraphic(new ImageView("Assets/Menu/adventure.png")));
+//        platform.setOnMouseEntered(event -> platform.setGraphic(new ImageView("Assets/Menu/adventure_hover.png")));
+//        platform.setOnMouseExited(event -> platform.setGraphic(new ImageView("Assets/Menu/adventure.png")));
 
         start.setOnMouseEntered(event -> start.setGraphic(new ImageView("Assets/Menu/start_hover.png")));
         start.setOnMouseExited(event -> start.setGraphic(new ImageView("Assets/Menu/start.png")));
@@ -55,12 +55,12 @@ public class MenuController implements Initializable {
         StageManager.stage.show();
     }
 
-    public void startplatformlevels(MouseEvent mouseEvent) throws IOException {
-        mainMenu.stop();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("fxml/platformLevel1.fxml")));
-        StageManager.stage.setScene(new Scene(root));
-        StageManager.stage.show();
-    }
+//    public void startplatformlevels(MouseEvent mouseEvent) throws IOException {
+//        mainMenu.stop();
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("fxml/platformLevel1.fxml")));
+//        StageManager.stage.setScene(new Scene(root));
+//        StageManager.stage.show();
+//    }
 
     public void startcontrolls(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("fxml/controlls.fxml")));

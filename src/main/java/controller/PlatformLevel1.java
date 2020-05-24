@@ -74,6 +74,7 @@ public class PlatformLevel1 implements Initializable {
         columnImage.setImage(column);
         columnImage.setFitWidth(column.getWidth());
         columnImage.setFitHeight(column.getHeight());
+        columnImage.setX(360);
 
         /**
          * Comprobador de colisiones.
@@ -83,7 +84,7 @@ public class PlatformLevel1 implements Initializable {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                if (dPressed.get() && playerImage.getX() <= 1200 - playerImage.getImage().getWidth())
+                    if (dPressed.get() && playerImage.getX() <= 1500 - playerImage.getFitWidth())
                 /**
                  * Animación ejecutada al pulsar la tecla "D".
                  */
@@ -127,7 +128,7 @@ public class PlatformLevel1 implements Initializable {
     public void da(KeyEvent e) {
         collisionChecker.emptyColCheck();
         if (player.getHealth() > 0) {
-
+            collisionChecker.columnColCheck();
             /**
              * El jugador se mueve en horizontal hacía la derecha cuando se presiona la tecla "D".
              * Se realizan ciertas comprobaciones para este movimiento, como que el jugador no esté golpeando o dando una patada mientras está en movimiento.
