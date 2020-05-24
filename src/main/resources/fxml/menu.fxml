@@ -3,10 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/menucss.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
-       <Button fx:id="platform" layoutX="158.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#startplatformlevels" style="-fx-background-color: transparent" text="Empieza tu aventura">
+       <ImageView id="mainImage" fitHeight="408.0" fitWidth="607.0" layoutX="-1.0">
+           <image>
+               <Image url="@../Assets/Menu/mainMenu.png" />
+           </image>
+       </ImageView>
+       <Button fx:id="platform" layoutX="158.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#startplatformlevels" style="-fx-background-color: transparent" text="Empieza tu aventura" textFill="#dfff00">
            <graphic>
                <ImageView fitHeight="66.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
                    <image>
@@ -14,7 +20,7 @@
                    </image>
                </ImageView>
            </graphic></Button>
-       <Button fx:id="start" layoutX="205.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#startselectcharacter" style="-fx-background-color: transparent" text="Combate contra tus amigos">
+       <Button fx:id="start" layoutX="205.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#startselectcharacter" style="-fx-background-color: transparent" text="Combate contra tus amigos" textFill="#dfff00">
           <graphic>
               <ImageView pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -22,6 +28,9 @@
                   </image>
               </ImageView>
           </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Button>
        <Button fx:id="quit" layoutX="158.0" layoutY="319.0" mnemonicParsing="false" style="-fx-background-color: transparent">
           <graphic>
@@ -32,7 +41,7 @@
               </ImageView>
           </graphic>
       </Button>
-       <Button fx:id="controls" layoutX="160.0" layoutY="224.0" mnemonicParsing="false" onMouseClicked="#startcontrolls" style="-fx-background-color: transparent" text="Visualiza los controles">
+       <Button fx:id="controls" layoutX="156.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#startcontrolls" style="-fx-background-color: transparent" text="Visualiza los controles" textFill="#dfff00">
            <graphic>
                <ImageView pickOnBounds="true" preserveRatio="true">
                    <image>
@@ -40,6 +49,9 @@
                    </image>
                </ImageView>
            </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
        </Button>
    </children>
 </AnchorPane>

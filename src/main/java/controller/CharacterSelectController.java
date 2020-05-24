@@ -59,8 +59,8 @@ public class CharacterSelectController implements Initializable   {
 
 
 
-        kratos.setOnMouseEntered(event -> kratos.setGraphic(new ImageView("Assets/Kratos/KratosHPunch.gif")));
-        kratos.setOnMouseExited(event -> kratos.setGraphic(new ImageView("Assets/Kratos/KratosStance.gif") ));
+        kratos.setOnMouseEntered(event -> kratos.setGraphic(new ImageView("Assets/Kratos/KratosHPunchR.gif")));
+        kratos.setOnMouseExited(event -> kratos.setGraphic(new ImageView("Assets/Kratos/KratosStanceRight.gif") ));
 
     }
 

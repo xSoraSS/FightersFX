@@ -6,6 +6,18 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CharacterSelectController">
    <children>
+      <ImageView fitHeight="408.0" fitWidth="607.0" layoutX="-1.0">
+         <image>
+            <Image url="@../Assets/Menu/characterSelect2.png" />
+         </image>
+      </ImageView>
+
+      <ImageView fitHeight="408.0" fitWidth="607.0" layoutX="-1.0">
+         <image>
+            <Image url="@../Assets/Menu/characterSelect.png" />
+         </image>
+      </ImageView>
+
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backmenu" style="-fx-background-color: transparent">
          <graphic>
             <ImageView pickOnBounds="true" preserveRatio="true">
@@ -17,7 +29,7 @@
       </Button>
       <Button fx:id="confirm" layoutX="370.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#Confirm" style="-fx-background-color: transparent">
          <graphic>
-            <ImageView  pickOnBounds="true" preserveRatio="true">
+            <ImageView pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/confirm.png" />
                </image>
@@ -25,7 +37,7 @@
          </graphic>
       </Button>
 
-      <ToggleButton fx:id="aries" contentDisplay="TOP" layoutX="72.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Select" style="-fx-background-color: transparent" text="Aries">
+      <ToggleButton fx:id="aries" contentDisplay="TOP" layoutX="33.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Select" style="-fx-background-color: transparent" text="Aries">
          <graphic>
             <ImageView pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,11 +46,11 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <ToggleButton fx:id="kratos" contentDisplay="TOP" layoutX="300.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Select" style="-fx-background-color: transparent" text="Kratos">
+      <ToggleButton fx:id="kratos" contentDisplay="TOP" layoutX="329.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Select" style="-fx-background-color: transparent" text="Kratos">
          <graphic>
             <ImageView pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Assets/Kratos/KratosStance.gif" />
+                  <Image url="@../Assets/Kratos/KratosStanceRight.gif" />
                </image>
             </ImageView>
          </graphic>
