@@ -7,9 +7,9 @@
 
 <AnchorPane onKeyPressed="#da" onKeyReleased="#db" prefHeight="603.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BattleController">
    <children>
-      <ImageView fx:id="battleground" fitHeight="603.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true" />
-
       <Button fx:id="Pause" layoutX="573.0" layoutY="14.0" mnemonicParsing="false" text="Button" AnchorPane.topAnchor="14.0" />
+
+      <ImageView fx:id="battleground" fitHeight="603.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="52.0" fitWidth="146.0" layoutX="14.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="26.0">
          <image>
             <Image url="@../Assets/player1.png" />
