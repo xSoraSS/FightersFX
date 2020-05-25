@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/menucss.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
@@ -14,40 +13,38 @@
        </ImageView>
 <!--       <Button fx:id="platform" layoutX="158.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#startplatformlevels" style="-fx-background-color: transparent" text="Empieza tu aventura" textFill="#dfff00">-->
 <!--           <graphic>-->
-<!--               <ImageView fitHeight="66.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">-->
-<!--                   <image>-->
-<!--                       <Image url="@../Assets/Menu/adventure.png" />-->
-<!--                   </image>-->
-<!--               </ImageView>-->
+               <ImageView fitHeight="69.0" fitWidth="302.0" layoutX="152.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../Assets/Menu/adventure.png" />
+                   </image>
+               </ImageView>
 <!--           </graphic></Button>-->
-       <Button fx:id="start" layoutX="192.0" layoutY="87.0" mnemonicParsing="false" onMouseClicked="#startselectcharacter" style="-fx-background-color: transparent" textFill="#dfff00">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-       <Button fx:id="quit" layoutX="158.0" layoutY="319.0" mnemonicParsing="false" style="-fx-background-color: transparent">
-          <graphic>
-              <ImageView pickOnBounds="true" preserveRatio="true">
-                  <image>
-                      <Image url="@../Assets/Menu/quit.png" />
-                  </image>
-              </ImageView>
-          </graphic>
-      </Button>
-       <Button fx:id="controls" layoutX="148.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#startcontrolls" style="-fx-background-color: transparent" textFill="#dfff00">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
+       <Button fx:id="start" layoutX="209.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#startselectcharacter" style="-fx-background-color: transparent">
+           <graphic>
+               <ImageView pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../Assets/Menu/start.png" />
+                   </image>
+               </ImageView>
+           </graphic>
        </Button>
-         <ImageView layoutX="181.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
-             <image>
-                 <Image url="@../Assets/Menu/control.png" />
-             </image>
-         </ImageView>
-        <ImageView layoutX="243.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../Assets/Menu/start.png" />
-            </image>
-        </ImageView>
+       <Button fx:id="quit" layoutX="158.0" layoutY="319.0" mnemonicParsing="false" style="-fx-background-color: transparent">
+           <graphic>
+               <ImageView pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../Assets/Menu/quit.png" />
+                   </image>
+               </ImageView>
+           </graphic>
+       </Button>
+       <Button fx:id="controls" layoutX="160.0" layoutY="230.0" mnemonicParsing="false" onMouseClicked="#startcontrolls" style="-fx-background-color: transparent">
+           <graphic>
+               <ImageView pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../Assets/Menu/control.png" />
+                   </image>
+               </ImageView>
+           </graphic>
+       </Button>
    </children>
 </AnchorPane>
