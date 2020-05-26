@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class MenuController implements Initializable {
 
     @FXML
-    private Button start, quit, controls, platform;
+    private Button start, quit, controls;
 
     private AudioClip mainMenu;
 

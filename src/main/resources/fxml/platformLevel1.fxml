@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<!--<?import javafx.scene.image.*?>-->
+<!--<?import javafx.scene.layout.*?>-->
 
-<?import javafx.scene.control.Button?>
-<AnchorPane onKeyPressed="#da" onKeyReleased="#db" prefHeight="792.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlatformLevel1">
-   <children>
-      <Button fx:id="Pause" layoutX="573.0" layoutY="14.0" mnemonicParsing="false" text="Button" AnchorPane.topAnchor="14.0" />
+<!--<?import javafx.scene.control.Button?>-->
+<!--<AnchorPane onKeyPressed="#da" onKeyReleased="#db" prefHeight="792.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlatformLevel1">-->
+<!--   <children>-->
+<!--      <Button fx:id="Pause" layoutX="573.0" layoutY="14.0" mnemonicParsing="false" text="Button" AnchorPane.topAnchor="14.0" />-->
 
-      <ImageView fx:id="bgImage" fitHeight="792.0" fitWidth="1501.0" layoutX="-1.0" />
-      <ImageView fx:id="floorImage" fitHeight="1.0" fitWidth="490.0" layoutX="-1.0" layoutY="754.0" />
-      <ImageView fx:id="platformImage" fitHeight="1.0" fitWidth="214.0" layoutX="-1.0" />
-      <ImageView fx:id="columnImage" fitHeight="12.0" fitWidth="21.0" layoutY="491.0" />
+<!--      <ImageView fx:id="bgImage" fitHeight="792.0" fitWidth="1501.0" layoutX="-1.0" />-->
+<!--      <ImageView fx:id="floorImage" fitHeight="1.0" fitWidth="490.0" layoutX="-1.0" layoutY="754.0" />-->
+<!--      <ImageView fx:id="platformImage" fitHeight="1.0" fitWidth="214.0" layoutX="-1.0" />-->
+<!--      <ImageView fx:id="columnImage" fitHeight="12.0" fitWidth="21.0" layoutY="491.0" />-->
 
-      <ImageView fx:id="playerImage" />
-   </children>
-</AnchorPane>
+<!--      <ImageView fx:id="playerImage" />-->
+<!--   </children>-->
+<!--</AnchorPane>-->
