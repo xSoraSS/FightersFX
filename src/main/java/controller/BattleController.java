@@ -6,7 +6,10 @@ import javafx.animation.TranslateTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,6 +22,7 @@ import model.Player;
 import uti.StageManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -519,7 +523,7 @@ public class BattleController implements Initializable {
         }
     }
 
-    public void db(KeyEvent e) {
+    public void db(KeyEvent e){
 
         // Player 1
         // If any of the following keys are released, then their associated boolean properties are set to false
@@ -602,13 +606,15 @@ public class BattleController implements Initializable {
                     p2.setImage(player2.getListFighterKOR()[index]);
                 }
             };
-//            gameOver = true;
-//            fight.setVisible(false);
-//            player1Wins.setVisible(true);
-//            menuButton.setVisible(true);
-//            quit.setVisible(true);
             winAnimationP1.play();
             koAnimationP2.play();
+            winAnimationP1.setOnFinished(event -> {
+                try {
+                    gameOver();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
         }
 
         else if(player1.getHealth() <= 0 && player2.getHealth() > 0 )//&& !gameOver)
@@ -639,22 +645,22 @@ public class BattleController implements Initializable {
                     p1.setImage(player1.getListFighterKOL()[index]);
                 }
             };
-//            gameOver = true;
-//            fight.setVisible(false);
-//            player2Wins.setVisible(true);
-//            menuButton.setVisible(true);
-//            quit.setVisible(true);
             winAnimationP2.play();
             koAnimationP1.play();
+            winAnimationP2.setOnFinished(event -> {
+                try {
+                    gameOver();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
         }
-        else if (player1.getHealth() == 0 && player2.getHealth() == 0)// && !gameOver)
-        {
-//            gameOver = true;
-//            fight.setVisible(false);
-//            tied.setVisible(true);
-//            menuButton.setVisible(true);
-//            quit.setVisible(true);
-        }
+    }
 
+    public void gameOver() throws IOException {
+        music.stop();
+        Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/menu.fxml"));
+        StageManager.stage.setScene(new Scene(root));
+        StageManager.stage.show();
     }
 }
