@@ -268,32 +268,30 @@ public class BattleController implements Initializable {
     public void da(KeyEvent e) {
         if(player1.getHealth() > 0 && player2.getHealth() > 0)
         {
-                /*
-                Control Structure:
-                The following code uses if statements to determine which actions the characters ons screen perform
-                when certain keys are pressed or released.
-                 */
-
-            // Player 1
-            // Player 1 moves to the right when the 'D' key is pressed on the keyboard, and certain conditions are
-            // met (like the player is not punching or kicking when it is pressed)
+            /**
+             * El jugador1 se mueve en horizontal hacía la derecha cuando se presiona la tecla "D".
+             * Se realizan ciertas comprobaciones para este movimiento, como que el jugador no esté golpeando o dando una patada mientras está en movimiento.
+             */
             if(e.getCode() == KeyCode.D && !p1PunchAction && !p1KickAction)
             {
-                p1.setImage(player1.getImageFighterForwardL()); // The player's character on screen changes to a
-                // gif of the character moving forward
-                dPressed.set(true); // A boolean property associated with this key is set to true
+                p1.setImage(player1.getImageFighterForwardL()); // El personaje en la pantalla cambia su gif, o animación, al movimiento hacía delante.
+                dPressed.set(true);
             }
 
-            // Player 1 moves left when the 'A' key is pressed on the keyboard, and certain conditions are
-            // met (like the player is not punching or kicking when it is pressed)
+            /**
+             * El jugador1 se mueve en horizontal hacía la izquierda cuando se presiona la tecla "A".
+             * Se realizan las mismas comprobaciones.
+             */
             if(e.getCode() == KeyCode.A && !p1PunchAction && !p1KickAction)
             {
-                p1.setImage(player1.getImageFighterBackwardL()); // The player's character on screen changes to a
-                // gif of the character moving backward
-                aPressed.set(true); // A boolean property associated with this key is set to true
+                p1.setImage(player1.getImageFighterBackwardL()); // El personaje en la pantalla cambia su gif, o animación, al movimiento hacía atras.
+                aPressed.set(true);
             }
 
-            // Player 1 jumps
+
+            /**
+             * Salto del jugador1.
+             */
             if(e.getCode() == KeyCode.W && !p1JumpAction && !p1PunchAction && !p1KickAction && !wPressed.get())
             {
                 p1JumpAction = true;
@@ -330,7 +328,9 @@ public class BattleController implements Initializable {
                 wPressed.set(true);
             }
 
-            // Player 1 punches
+            /**
+             * Puñetazo del jugador1.
+             */
             if(e.getCode() == KeyCode.S && !p1PunchAction && !p1KickAction && !p1JumpAction && !sPressed.get())
             {
                 if(aPressed.get() || dPressed.get())
@@ -360,7 +360,9 @@ public class BattleController implements Initializable {
 
             }
 
-            // Player 1 kicks
+            /**
+             * Patada del jugador1.
+             */
             if(e.getCode() == KeyCode.C && !p1KickAction && !p1PunchAction && !p1JumpAction && !cPressed.get())
             {
                 if(aPressed.get() || dPressed.get())
@@ -393,22 +395,29 @@ public class BattleController implements Initializable {
                 cPressed.set(true);
             }
 
-            // Player 2
-            // Player 2 moves left
+            /**
+             * El jugador2 se mueve en horizontal hacía la derecha cuando se presiona la tecla "J".
+             * Se realizan ciertas comprobaciones para este movimiento, como que el jugador no esté golpeando o dando una patada mientras está en movimiento.
+             */
             if(e.getCode() == KeyCode.J && !p2PunchAction && !p2KickAction)
             {
                 p2.setImage(player2.getImageFighterForwardR());
                 leftPressed.set(true);
             }
 
-            // Player 2 moves right
+            /**
+             * El jugador2 se mueve en horizontal hacía la izquierda cuando se presiona la tecla "L".
+             * Se realizan las mismas comprobaciones.
+             */
             if(e.getCode() == KeyCode.L && !p2PunchAction && !p2KickAction)
             {
                 p2.setImage(player2.getImageFighterBackwardR());
                 rightPressed.set(true);
             }
 
-            // Player 2 jumps
+            /**
+             * Salto del jugador2.
+             */
             if(e.getCode() == KeyCode.I && !p2JumpAction && !p2PunchAction && !p2KickAction && !upPressed.get())
             {
                 p2JumpAction = true;
@@ -445,7 +454,9 @@ public class BattleController implements Initializable {
 
             }
 
-            // Player 2 punches
+            /**
+             * Puñetazo del jugador2.
+             */
             if(e.getCode() == KeyCode.K && !p2PunchAction && !p2KickAction && !p2JumpAction &&
                     !downPressed.get())
             {
@@ -483,7 +494,9 @@ public class BattleController implements Initializable {
 
             }
 
-            // Player 2 kicks
+            /**
+             * Patada del jugador2.
+             */
             if(e.getCode() == KeyCode.H && !p2KickAction && !p2PunchAction && !p2JumpAction &&
                     !slashPressed.get())
             {
@@ -525,8 +538,12 @@ public class BattleController implements Initializable {
 
     public void db(KeyEvent e){
 
-        // Player 1
-        // If any of the following keys are released, then their associated boolean properties are set to false
+        /**
+         * Se realiza la comprobación de cuando una tecla deja de ser presionada para estblecer sus booleanos a False y poder realizar otras acciones.
+         */
+        /**
+         * Jugador1.
+         */
         if(e.getCode() == KeyCode.D)
         {
             dPressed.set(false);
@@ -552,7 +569,9 @@ public class BattleController implements Initializable {
             cPressed.set(false);
         }
 
-        // Player 2
+        /**
+         * Jugador2.
+         */
         if(e.getCode() == KeyCode.J)
         {
             leftPressed.set(false);
@@ -658,6 +677,9 @@ public class BattleController implements Initializable {
     }
 
     public void gameOver() throws IOException {
+        /**
+         * Se termina la partida y regresa al menú principal.
+         */
         music.stop();
         Parent root = FXMLLoader.load(Thread.currentThread().getContextClassLoader().getResource("fxml/menu.fxml"));
         StageManager.stage.setScene(new Scene(root));
