@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="FightersFX">
+    <output-path>$PROJECT_DIR$/out/artifacts/FightersFX</output-path>
+    <root id="root">
+      <element id="archive" name="FightersFX.jar">
+        <element id="module-output" name="FightersFX" />
+      </element>
+    </root>
+  </artifact>
+</component>

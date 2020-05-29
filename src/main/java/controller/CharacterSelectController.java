@@ -134,7 +134,9 @@ public class CharacterSelectController implements Initializable   {
 
     public void setCharacter(String p1, String p2)
     {
-        // Depending on what a player has chosen previously, an object for the player's choice is instantiated
+        /**
+         * Dependiendo del personaje que haya elegido el jugador previamente, se instaciará un objeto.
+         */
         if(p1.equals("Kratos"))
         {
             this.player1 = new Kratos();
